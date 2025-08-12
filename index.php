@@ -10,7 +10,7 @@
  * @package  StarNetworks
  * @author   Gustavo Dias <gustavodiasdsc@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     https://github.com/yourusername/star-networks
+ * @link     https://github.com/gustavodiadsc/star-wars
  */
 
 echo 'hello world!';
