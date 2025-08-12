@@ -28,8 +28,9 @@ class Route
     /**
      * Push em $_routes para rotas get
      *
-     * @param string $path   controlador referido
-     * @param string $action método referido do controlador
+     * @param string $path   caminho da rota
+     * @param string $action controlador e método a ser chamado,
+     *                       separados por @. Ex.: HelloController@index
      * 
      * @return void
      */
@@ -45,8 +46,9 @@ class Route
     /**
      * Push em $_routes para rotas post
      *
-     * @param string $path   controlador referido
-     * @param string $action método referido do controlador
+     * @param string $path   caminho da rota
+     * @param string $action controlador e método a ser chamado,
+     *                       separados por @. Ex.: HelloController@index
      * 
      * @return void
      */
@@ -62,8 +64,9 @@ class Route
     /**
      * Push em $_routes para rotas put
      *
-     * @param string $path   controlador referido
-     * @param string $action método referido do controlador
+     * @param string $path   caminho da rota
+     * @param string $action controlador e método a ser chamado,
+     *                       separados por @. Ex.: HelloController@index
      * 
      * @return void
      */
@@ -79,8 +82,9 @@ class Route
     /**
      * Push em $_routes para rotas delete
      *
-     * @param string $path   controlador referido
-     * @param string $action método referido do controlador
+     * @param string $path   caminho da rota
+     * @param string $action controlador e método a ser chamado,
+     *                       separados por @. Ex.: HelloController@index
      * 
      * @return void
      */
