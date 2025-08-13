@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HelloController.php
  *
@@ -11,6 +12,8 @@
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://github.com/yourusername/star-networks
  */
+
+require_once __DIR__ . "./../lib/StarWarsApi.php";
 
 /**
  * Classe HelloController
@@ -30,6 +33,7 @@ class HelloController
      */
     public function view()
     {
-        echo "Hello World -> Hello Controller!!";
+        $api = new StarWarsApi();
+        $api->get("films/");
     }
 }

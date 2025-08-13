@@ -1,0 +1,42 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    volumes:
+      - .:/var/www/html
+      # Cache do Composer para melhor performance
+      - composer-cache:/tmp/composer-cache
+    ports:
+      - "8080:80"      # Apache
+      - "8000:8000"    # Servidor PHP interno
+    depends_on:
+      - db
+    # Variáveis de ambiente para desenvolvimento
+    environment:
+      - PHP_IDE_CONFIG=serverName=localhost
+    # Manter o container rodando para poder usar exec
+    tty: true
+    stdin_open: true
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    ports:
+      - "3306:3306"
+    volumes:
+      # Persistir dados do MySQL
+      - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  composer-cache:
+  mysql-data:
