@@ -45,11 +45,13 @@ class Request
     {
         $json = json_decode(file_get_contents("php://input"), true) ?? [];
 
-        $data = match (self::method()) {
-            'GET' => $_GET,
-            'POST', 'PUT', 'DELETE' => $json
-        };
+        $map = [
+          'GET' => $_GET,
+          'POST' => $json,
+          'PUT' => $json,
+          'DELETE' => $json
+        ];
 
-        return $data;
+        return $map[self::method()] ?? null;
     }
 }

@@ -13,6 +13,9 @@
  * @link     https://github.com/yourusername/star-networks
  */
 
+require_once __DIR__ . '/Request.php';
+require_once __DIR__ . '/Response.php';
+
 /**
  * Classe Core
  *
@@ -35,8 +38,14 @@ class Core
      */
     public static function dispatch(array $routes)
     {
+        // Inclui todos os controllers automaticamente
+        foreach (glob(__DIR__ . '/../Controller/*.php') as $filename) {
+            // phpcs:ignore
+            require_once $filename;
+        }
+
         // Detecta automaticamente a URL do REQUEST_URI
-        $prefixController = 'App\\Controllers\\';
+        $prefixController = '';
         $routeFound = false;
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 

@@ -1,8 +1,9 @@
 <?php
-
 /**
- * Index.php
+ * Router.php
  *
+ * Arquivo de rotas da aplicação
+ * 
  * PHP version 7.4.39
  * Entry point for the Star Networks project.
  *
@@ -10,11 +11,9 @@
  * @package  StarNetworks
  * @author   Gustavo Dias <gustavodiasdsc@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     https://github.com/gustavodiadsc/star-wars
+ * @link     https://github.com/yourusername/star-networks
  */
 
-require_once __DIR__ . "/src/lib/Router.php";
-require_once __DIR__ . "/src/lib/Core.php";
-require_once __DIR__ . "/src/lib/Routes.php";
+require_once __DIR__ . "/Routes.php";
 
-Core::dispatch(Route::routes());
+Route::get('/', 'HelloController@view');
